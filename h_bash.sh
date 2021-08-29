@@ -1,9 +1,8 @@
 #!/bin/sh
-
 #git pull
-git -C  wowHoneypot-bunseki/ pull
+#git -C  wowHoneypot-bunseki/ pull
+git pull
 #ここで本当はaws s3のinputをする必要がある.
-aws s3 cp s3://dev-honeypot-accesslog /home/ec2-user/wowHoneypot-bunseki/input
 #ファイル名をここで決める
 to_day=$(date +"%Y%m%d")
 echo $to_day
