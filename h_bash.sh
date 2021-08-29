@@ -11,4 +11,4 @@ pip3 install -rrequirements.txt
 #python jupiter出力
 jupyter nbconvert --execute test.ipynb --output output/$to_day  --to html
 #aws s3アップロード
-aws s3 cp /output s3://dev-honeypot-output-data/ --recursive
+aws s3 cp output s3://dev-honeypot-output-data/ --recursive
