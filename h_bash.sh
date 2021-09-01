@@ -1,4 +1,4 @@
-#!/bin/sh
+!/bin/sh
 #git pull
 #git -C  wowHoneypot-bunseki/ pull
 git pull -C ../../home/ssm-user/wowHoneypot-bunseki/ pull
