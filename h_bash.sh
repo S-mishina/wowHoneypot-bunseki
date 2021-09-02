@@ -1,7 +1,8 @@
 !/bin/sh
 #git pull
 #git -C  wowHoneypot-bunseki/ pull
-git pull -C ../../home/ssm-user/wowHoneypot-bunseki/ pull
+git -C ../../home/ssm-user/wowHoneypot-bunseki/ pull
+/home/ssm-user/wowHoneypot-bunseki
 ここで本当はaws s3のinputをする必要がある.
 aws s3 cp s3://dev-honeypot-accesslog ../../home/ssm-user/wowHoneypot-bunseki/input/log --exclude "" --include ".txt" --recursive
 #ファイル名をここで決める
