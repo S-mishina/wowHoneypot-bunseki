@@ -151,3 +151,5 @@ pip freeze > requirements.txt
 
 ## CI
 コードの自動テストを行う場合には, .pyファイルをexportする.
+### 現状
+lintをかけるところまではCIで行っている.
