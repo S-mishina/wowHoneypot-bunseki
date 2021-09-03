@@ -8,6 +8,62 @@ h_bash.shは最新コード触らない.<br>
 chmod 707 h_bash.sh
 ```
 
+## lambda
+
+```python
+import boto3
+import os
+import sys
+import time
+
+def ec2_start():
+    ec2 = boto3.client('ec2', region_name=os.environ['region'])
+    ec2.start_instances(InstanceIds=[os.environ['instance_id']])
+    print('Instance ' + os.environ['instance_id'] + ' Started')
+
+def ec2_stop():
+    ec2 = boto3.client('ec2', region_name=os.environ['region'])
+    ec2.stop_instances(InstanceIds=[os.environ['instance_id']])
+    print('Instance ' + os.environ['instance_id'] + ' Stopped')
+
+def ec2_run_command():
+    args = sys.argv
+    command = "../../home/ssm-user/wowHoneypot-bunseki/./h_bash.sh"
+    ssm = boto3.client('ssm')
+    r = ssm.send_command(
+        InstanceIds=[os.environ['instance_id']],
+        DocumentName = "AWS-RunShellScript",
+        Parameters = {
+            "commands": [command] 
+        }
+    )
+    command_id = r['Command']['CommandId']
+    ## 処理終了待ち
+    time.sleep(5)
+    res = ssm.list_command_invocations(
+          CommandId = command_id,
+          Details = True
+      )
+    invocations = res['CommandInvocations']
+    status = invocations[0]['Status']
+    if status == "Failed":
+        print("Command実行エラー")
+    account = invocations[0]['CommandPlugins'][0]['Output']
+    print(account)
+    
+
+def main(event, context):
+    print('ec2 start')
+    ec2_start()
+    time.sleep(10)
+    print('run_command start')
+    ec2_run_command()
+    time.sleep(10)
+    print('ec2 stop')
+    ec2_stop()
+
+```
+
 ## 分析フォーマット
 
 ```python
