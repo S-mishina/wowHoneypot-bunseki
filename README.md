@@ -10,7 +10,7 @@ chmod 707 h_bash.sh
 
 ## 分析フォーマット
 
-```
+```python
 # %%
 import pandas
 import numpy as np
