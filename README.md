@@ -149,5 +149,5 @@ for i in range(len(ip)):
 pip freeze > requirements.txt
 ```
 
-## cd
+## CD
 コードの自動テストを行う場合には, .pyファイルをexportする.
