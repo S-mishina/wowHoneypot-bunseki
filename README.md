@@ -142,3 +142,9 @@ for i in range(len(ip)):
     print('https://www.abuseipdb.com/check/'+str(ip.index[i]))
 
 ```
+### 自分で新たな分析を追加する場合
+新たなライブラリを使う場合には, 
+
+```
+pip freeze > requirements.txt
+```
