@@ -3,7 +3,7 @@
 #git -C  wowHoneypot-bunseki/ pull
 git -C ../../../../home/ubuntu/wowHoneypot-bunseki/ pull
 #ここで本当はaws s3のinputをする必要がある.
-aws s3 cp s3://dev-honeypot-accesslog ../../../../home/ubuntu/wowHoneypot-bunseki/input/log --exclude"" --include ".txt" --recursive
+aws s3 cp s3://dev-honeypot-accesslog ../../../../home/ubuntu/wowHoneypot-bunseki/input/log --exclude"" --include ".log" --recursive
 #ファイル名をここで決める
 to_day=$(date +"%Y%m%d")
 echo $to_day
